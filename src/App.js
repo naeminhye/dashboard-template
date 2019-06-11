@@ -1,10 +1,15 @@
-import React from 'react';
-import BasicLayout from './layouts/BasicLayout';
+import React, { Component } from 'react';
+import { BasicLayout } from './layouts';
+import { GlobalStyles } from './assets/styles'
 import './App.css';
+import 'semantic-ui-css/semantic.min.css'
 
-function App() {
+const App = () => {
   return (
-    <BasicLayout />
+    <div className="full-height">
+      <GlobalStyles />
+      <BasicLayout />
+    </div>
   );
 }
 

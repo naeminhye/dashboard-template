@@ -37,3 +37,23 @@ npm run build
 ```bash
 npm test
 ```
+
+## Project Rules
+
+### Languages and Frameworks
+JavaScript ES6
+
+### Styling Rules
+To configurate styled components to the project, create a proper Javascript file in `src/assets/styles` and create a styled component as this following standard:
+```bash
+    export const <Name_of_Styled_Component> = styled.<origin_component>`
+        /* ... */
+    `
+    export const <Name_of_Styled_Component> = styled(<customized_component>)`
+        /* ... */
+    `
+```
+To call the styled components that was defined in the former step, 
+```bash
+    import { <Name_of_Styled_Component> } from '<path>'
+```
