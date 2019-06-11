@@ -3,6 +3,13 @@ import {
   Menu,
   Sidebar,
 } from 'semantic-ui-react';
+import styled from "styled-components";
+// import { StyledSidebar } from '../../assets/styles';
+
+const StyledSidebar = styled(Sidebar)` 
+  box-shadow: none;
+  /* visibility: ${props => props.visible}; */
+`
 
 const VerticalSidebar = ({ animation, direction, visible, children }) => (
   <Sidebar
@@ -12,7 +19,7 @@ const VerticalSidebar = ({ animation, direction, visible, children }) => (
     icon='labeled'
     vertical
     visible={visible}
-    width='thin'
+    width="wide"
   >
     {children}
   </Sidebar>

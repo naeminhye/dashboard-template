@@ -10,6 +10,12 @@ import {
     Sidebar,
     Search
 } from 'semantic-ui-react'
+import { 
+    GlobalStyles, 
+    Background, 
+} from '../assets/styles'
+
+import { Link } from 'react-router-dom';
 
 class BasicLayout extends Component {
 
@@ -29,47 +35,80 @@ class BasicLayout extends Component {
 
     render() {
         const { activeItem, animation, direction, visible } = this.state
+        const { children } = this.props
 
+        const menus = [
+            {
+                name: 'home',
+                icon: 'home',
+                link: '/home'
+            },
+            {
+                name: 'about',
+                icon: 'about',
+                link: '/about'
+            },
+        //     {
+        //       name: 'form',
+        //       icon: 'checkmark box',
+        //       submenus: [
+        //         { name: 'input' },
+        //         { name: 'range-picker' }
+        //       ]
+        //     },
+        //     {
+        //       name: 'dropdown',
+        //       icon: 'sitemap',
+        //     },
+        //     {
+        //       name: 'calendar',
+        //       icon: 'calendar check',
+        //     },
+        //     {
+        //       name: 'layout',
+        //       icon: 'grid layout',
+        //     },
+        //     {
+        //       name: 'chart',
+        //       icon: 'bar chart',
+        //     }
+          ];
+
+    
         return (
-            <div className="full-height">
-                <Sidebar.Pushable>
-                    <Menu pointing secondary vertical>
-                            <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
-                            <Menu.Item
-                            name='messages'
-                            active={activeItem === 'messages'}
+            <Background>
+                <GlobalStyles />
+                
+                <Menu pointing secondary vertical size='massive'>
+                    {menus.map(item => {
+                        return (
+                            <Menu.Item 
+                                key={item.name}
+                                as={Link} to={item.link} 
+                                name={item.name} 
+                                active={activeItem === item.name} 
+                                onClick={this.handleItemClick} />
+                        )
+                    })}
+                        {/* <Menu.Item 
+                            as={Link} to={'/home'} 
+                            name='home' 
+                            active={activeItem === 'home'} 
+                            onClick={this.handleItemClick} />
+                        <Menu.Item
+                            as={Link} to={'/about'}
+                            name='about'
+                            active={activeItem === 'about'}
                             onClick={this.handleItemClick}
-                            />
-                            <Menu.Item
-                            name='friends'
-                            active={activeItem === 'friends'}
-                            onClick={this.handleItemClick}
-                            />
-                        </Menu>
-                    {/* <VerticalSidebar animation={animation} direction={direction} visible={visible}>
-                        
-                            <Menu.Item as='a'>
-                                <Icon name='home' />
-                                Home
-                            </Menu.Item>
-                            <Menu.Item as='a'>
-                                <Icon name='gamepad' />
-                                Games
-                            </Menu.Item>
-                            <Menu.Item as='a'>
-                                <Icon name='camera' />
-                                Channels
-                            </Menu.Item>
-                    </VerticalSidebar> */}
-
-                    <Sidebar.Pusher>
-                        <Segment basic>
+                        /> */}
+                    </Menu>
+                    <Segment basic>
                             <Menu attached="top">
                                 <Menu.Item onClick={this.handleAnimationChange("push")} >
-                                <Icon name="sidebar" />Menu
-                                </Menu.Item>     
+                                    <Icon name="sidebar" />Menu
+                                </Menu.Item>
                                 <SearchBox placeholder="Search ..." />
-             
+
                             </Menu>
                             {/* <Button toggle animated='vertical' onClick={this.handleAnimationChange("push")}>
                                 {this.state.visible ? <Button.Content hidden>
@@ -82,14 +121,20 @@ class BasicLayout extends Component {
                                     <Icon name='sidebar' />
                                 </Button.Content>
                             </Button> */}
-                            <Header as='h3'>Content</Header>
-                            <div>
 
-                            </div>
+                            {children}
+                           
                         </Segment>
+                {/* <Sidebar.Pushable>
+                    <VerticalSidebar animation={animation} direction={direction} visible={visible}>
+                        
+                    </VerticalSidebar>
+
+                    <Sidebar.Pusher>
+                        
                     </Sidebar.Pusher>
-                </Sidebar.Pushable>
-            </div>
+                </Sidebar.Pushable> */}
+            </Background>
         )
     }
 };

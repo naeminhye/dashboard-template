@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
 import { BasicLayout } from './layouts';
-import { GlobalStyles } from './assets/styles'
 import './App.css';
 import 'semantic-ui-css/semantic.min.css'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { Home, About } from './pages'
 
 const App = () => {
   return (
-    <div className="full-height">
-      <GlobalStyles />
-      <BasicLayout />
-    </div>
+    <Router>
+      <div>
+          <BasicLayout>
+            <Switch>
+                <Route exact path='/home' component={Home} />
+                <Route exact path='/about' component={About} />
+            </Switch>
+          </BasicLayout>
+      </div>
+    </Router>
   );
 }
 
 export default App;
+
