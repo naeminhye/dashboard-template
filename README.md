@@ -62,3 +62,7 @@ To call the styled components that was defined in the former step,
 ```bash
 import { <Name_of_Styled_Component> } from '<path>'
 ```
+
+## File Structure
+Within the download you'll find the following directories and files:
+

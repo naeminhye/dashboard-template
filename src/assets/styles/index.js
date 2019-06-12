@@ -2,10 +2,17 @@ import styled, { createGlobalStyle } from "styled-components";
 import {
   Sidebar,
   Input,
+  MenuItem
 } from 'semantic-ui-react'
+
+import {
+  EuiHeader
+} from '@elastic/eui';
 
 /* M PLUS Rounded 1c */
 import RoundedMplus1c from '../fonts/RoundedMplus1c/RoundedMplus1c-Regular.ttf'
+
+import { Drawer } from '../../components/sidebars'
 
 export const GlobalStyles = createGlobalStyle`
   
@@ -38,7 +45,7 @@ export const Paragraph = styled.p `
 
 export const Background = styled.div`
   height: 100%;
-  background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+  /* background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1); */
 `
 
 export const Button = styled.button`
@@ -56,4 +63,19 @@ export const Search = styled(Input)`
     cursor: pointer;
     border-color: red;
   } */
+`
+
+// export const StyledMenuItem = styled(MenuItem) `
+//   width: inherit;
+//   font-size: 20px;
+// `
+
+export const StyledHeader = styled(EuiHeader) `
+box-shadow: none;
+background: none;
+border-bottom: none;
+`
+
+export const MenuContainer = styled.div`
+  /* padding: 20px; */
 `

@@ -2,8 +2,11 @@
   "name": "dashboard-template",
   "version": "0.1.0",
   "private": true,
-  "description": "A dashboard template for public uses based on Ant Design.",
+  "description": "A dashboard template for shared using purposes.",
   "dependencies": {
+    "@appbaseio/reactivesearch": "^3.0.0-rc.13",
+    "@elastic/datemath": "^5.0.2",
+    "@elastic/eui": "^10.4.3",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
     "react": "^16.8.6",
