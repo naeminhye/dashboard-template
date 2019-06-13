@@ -6,7 +6,8 @@ import {
 } from 'semantic-ui-react'
 
 import {
-  EuiHeader
+  EuiHeader,
+  EuiPage
 } from '@elastic/eui';
 
 /* M PLUS Rounded 1c */
@@ -43,9 +44,9 @@ export const Paragraph = styled.p `
 // @import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c&display=swap');
 // font-family: 'M PLUS Rounded 1c', sans-serif;
 
-export const Background = styled.div`
-  height: 100%;
-  /* background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1); */
+export const Background = styled(EuiPage)`
+  min-height: 100%;
+  background-image: linear-gradient(to right, #f9afd9, #e9ace0, #d6abe5, #c1aae9, #a9a9ea, #99b0ed, #8ab6ec, #7fbbe9, #86c7e7, #95d2e4, #a9dce2, #bfe5e3);
 `
 
 export const Button = styled.button`

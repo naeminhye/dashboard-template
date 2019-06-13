@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import {
-    EuiPage,
+    // EuiPage,
     EuiPageBody,
     EuiPageContent,
     EuiPageContentBody,
@@ -22,7 +22,9 @@ import {
     EuiHeaderSectionItemButton,
     EuiHeaderLogo,
     EuiIcon,
-    EuiPopover, EuiButton
+    EuiPopover, EuiButton,
+    EuiKeyPadMenu,
+    EuiKeyPadMenuItem,
 } from '@elastic/eui';
 
 import '@elastic/eui/dist/eui_theme_light.css';
@@ -273,17 +275,6 @@ class BasicLayout extends Component {
 
     setNavDrawerRef = ref => (this.navDrawerRef = ref);
 
-
-    renderLogo() {
-        return (
-            <EuiHeaderLogo
-                iconType="logoKibana"
-                href="#"
-                aria-label="Go to home page"
-            />
-        );
-    }
-
     renderBreadcrumbs() {
         const breadcrumbs = [
             {
@@ -372,8 +363,8 @@ class BasicLayout extends Component {
 
         return (
             <Background>
+                {/* <EuiPage> */}
                 <GlobalStyles />
-                <EuiPage>
                     {/* <EuiNavDrawer ref={this.setNavDrawerRef}>
                             <EuiNavDrawerGroup listItems={this.topLinks} />
                             <EuiHorizontalRule margin="none" />
@@ -392,45 +383,57 @@ class BasicLayout extends Component {
                     <EuiPageBody>
 
                         <StyledHeader>
-                            <EuiHeaderSection grow={false}>
-                                <EuiHeaderSectionItem border="right">
-                                    {this.renderLogo()}
-                                </EuiHeaderSectionItem>
-                                <EuiHeaderSectionItem border="right">
-                                    {/* <HeaderSpacesMenu /> */}
+                            {/* <EuiShowFor sizes={['xs', 's']}> */}
+                            <EuiHeaderSection>
+                                <EuiHeaderSectionItem border="none" >
+                                    <EuiHeaderSectionItemButton aria-label="apps">
+                                        <EuiIcon type="apps" size="m" />
+                                    </EuiHeaderSectionItemButton>
+
                                 </EuiHeaderSectionItem>
                             </EuiHeaderSection>
+                            {/* </EuiShowFor> */}
 
                             {this.renderBreadcrumbs()}
 
                             <EuiHeaderSection side="right">
-                                <EuiHeaderSectionItem>{this.renderSearch()}</EuiHeaderSectionItem>
+                                <EuiHeaderSectionItem border="none">{this.renderSearch()}</EuiHeaderSectionItem>
+                                <EuiHeaderSectionItem border="none">
+                                    <EuiPopover
+                                        id="popover"
+                                        button={(
+                                            <EuiHeaderSectionItemButton aria-label="globe">
+                                                <EuiIcon type="globe" size="m" onClick={this.onButtonClick.bind(this)} />
+                                            </EuiHeaderSectionItemButton>)}
+                                        isOpen={this.state.isPopoverOpen}
+                                        closePopover={this.closePopover.bind(this)}>
+                                        <EuiKeyPadMenu>
+                                            <EuiKeyPadMenuItem label="Dashboard" href="#">
+                                                <EuiIcon type="dashboardApp" size="l" />
+                                            </EuiKeyPadMenuItem>
 
-                                <EuiHeaderSectionItem>
-                                    {/* <HeaderUserMenu /> */}
-                                </EuiHeaderSectionItem>
+                                            <EuiKeyPadMenuItem
+                                                label="Dashboard"
+                                                href="#"
+                                                betaBadgeLabel="Beta"
+                                                betaBadgeTooltipContent="This module is not GA. Please help us by reporting any bugs.">
+                                                <EuiIcon type="dashboardApp" size="l" />
+                                            </EuiKeyPadMenuItem>
 
-                                <EuiHeaderSectionItem>
-                                    {/* <HeaderAppMenu /> */}
-
-                                    <EuiShowFor sizes={['xs', 's']}>
-                                        <EuiPopover
-                                            id="popover"
-                                            button={(
-                                                <EuiHeaderSectionItemButton aria-label="Search">
-                                                    <EuiIcon type="apps" size="m" onClick={this.onButtonClick.bind(this)} />
-                                                </EuiHeaderSectionItemButton>)}
-                                            isOpen={this.state.isPopoverOpen}
-                                            closePopover={this.closePopover.bind(this)}>
-                                            <div style={{ width: '300px' }}>
-                                                Popover content that&rsquo;s wider than the default width
-                                        </div>
-                                        </EuiPopover>
-
-                                    </EuiShowFor>
-
+                                            <EuiKeyPadMenuItem
+                                                label="Dashboard"
+                                                href="#"
+                                                betaBadgeLabel="Lab"
+                                                betaBadgeTooltipContent="This module is not GA. Please help us by reporting any bugs."
+                                                betaBadgeIconType="bolt">
+                                                <EuiIcon type="dashboardApp" size="l" />
+                                            </EuiKeyPadMenuItem>
+                                        </EuiKeyPadMenu>
+                                    </EuiPopover>
                                 </EuiHeaderSectionItem>
                             </EuiHeaderSection>
+
+
                         </StyledHeader>
                         <EuiPageContentHeader>
                             <EuiPageContentHeaderSection>
@@ -451,7 +454,7 @@ class BasicLayout extends Component {
                                 </Menu> */}
                         {children}
                     </EuiPageBody>
-                </EuiPage>
+                {/* </EuiPage> */}
 
 
             </Background>

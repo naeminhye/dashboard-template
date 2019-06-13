@@ -8,14 +8,12 @@ import { Home, About } from './pages'
 const App = () => {
   return (
     <Router>
-      <div>
           <BasicLayout>
             <Switch>
                 <Route exact path='/home' component={Home} />
                 <Route exact path='/about' component={About} />
             </Switch>
           </BasicLayout>
-      </div>
     </Router>
   );
 }
