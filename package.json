@@ -7,7 +7,7 @@
     "@appbaseio/reactivesearch": "^3.0.0-rc.13",
     "@elastic/datemath": "^5.0.2",
     "@elastic/eui": "^10.4.3",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.21",
     "moment": "^2.24.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
